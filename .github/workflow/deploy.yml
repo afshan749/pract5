@@ -1,0 +1,22 @@
+on:
+push:
+branches:
+- main
+permission:
+Content: read
+Pages: write
+Id-token: write
+Jobes:
+build:
+runs-on: ubunto-latest
+Steps:
+- name: checkout code
+uses: actions/chekout@v4
+- name: configure github Pages
+uses: action/upload-pages-artifact@v5
+- name: upload website files
+uses: action/upload-pages-artifact@v5
+with:
+path: ./
+- name: deploy to github pages
+uses: actions/deploy-pages@v4
